@@ -7,10 +7,17 @@ import { httpService } from './utils/serviceHelpers';
 // In prod, the canonical auth domain is kbase.us, not narrative.kbase.us
 // navigating instead to narrative.kbase.us will set the internal cookie
 // on the wrong domain.
-const authOrigin =
-  document.location.origin === 'https://narrative.kbase.us'
-    ? 'https://kbase.us'
-    : document.location.origin;
+// For berdl.kbase.us subdomains, use narrative.kbase.us for auth services
+const authOrigin = (() => {
+  if (document.location.origin === 'https://narrative.kbase.us') {
+    return 'https://kbase.us';
+  }
+  // Support multiple berdl.kbase.us subdomains by redirecting to narrative.kbase.us
+  if (document.location.hostname.endsWith('.berdl.kbase.us')) {
+    return 'https://narrative.kbase.us';
+  }
+  return document.location.origin;
+})();
 
 const authService = httpService({
   url: '/services/auth',
