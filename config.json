@@ -48,6 +48,36 @@
         "domain": ".kbase.us"
       },
       "cdm_domain": "hub.berdl.kbase.us"
+    },
+
+    "dev-berdl": {
+      "domain": "dev.berdl.kbase.us",
+      "legacy": "legacy.narrative.kbase.us",
+      "public_url": "/",
+      "backup_cookie": {
+        "name": "kbase_session_backup",
+        "domain": ".kbase.us"
+      }
+    },
+
+    "hub-berdl": {
+      "domain": "hub.berdl.kbase.us",
+      "legacy": "legacy.narrative.kbase.us",
+      "public_url": "/",
+      "backup_cookie": {
+        "name": "kbase_session_backup",
+        "domain": ".kbase.us"
+      }
+    },
+
+    "stage-berdl": {
+      "domain": "stage.berdl.kbase.us",
+      "legacy": "legacy.narrative.kbase.us",
+      "public_url": "/",
+      "backup_cookie": {
+        "name": "kbase_session_backup",
+        "domain": ".kbase.us"
+      }
     }
   }
 }
